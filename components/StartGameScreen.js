@@ -3,7 +3,9 @@ import { StyleSheet, View, Text, TextInput, Button, TouchableWithoutFeedback, Ke
 import Colors from '../constants/colors'
 import Input from '../components/Input'
 import Card from '../components/Card'
+import BodyText from '../components/BodyText'
 import NumberContainer  from '../components/NumberContainer'
+import DefaultStyles from '../constants/default-styles';
 const StartGameScreen = props => {
     const [enteredValue, setEnteredValue] = useState('');
     const [userConfirmed, setUserConfirmed] = useState(false);
@@ -43,11 +45,12 @@ const StartGameScreen = props => {
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss()
         }}>
+          
             <View style={styles.screen}>
-                <Text style={styles.textOne}> The Game Screen!</Text>
+            <BodyText> <Text style={styles.textOne}> The Game Screen!</Text></BodyText>
                 <View style={styles.inputContainer}>
 
-                    <Text>Select a Number</Text>
+                  <Text style={DefaultStyles.bodyTextRed}>Select a Number</Text>
                     <Input style={styles.textInput} autoCorrect={false}
                         keyboardType='number-pad' maxLength={2}
                         onChangeText={numberInputHandler}
@@ -60,6 +63,7 @@ const StartGameScreen = props => {
                 </View>
 {textOutput}
             </View>
+            
         </TouchableWithoutFeedback>
     )
 
